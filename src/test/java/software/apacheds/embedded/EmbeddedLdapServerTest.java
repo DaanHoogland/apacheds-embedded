@@ -31,6 +31,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class EmbeddedLdapServerTest {
 
@@ -59,6 +60,7 @@ public class EmbeddedLdapServerTest {
         assertNotNull(directoryService.getSystemPartition());
         assertNotNull(directoryService.getSchemaManager());
         assertNotNull(directoryService.getDnFactory());
+        assertNotNull(directoryService.getLdapCodecService());
 
         assertNotNull(directoryService.isDenormalizeOpAttrsEnabled());
 
@@ -74,6 +76,13 @@ public class EmbeddedLdapServerTest {
         java.util.Collections.sort(userList);
         List checkList = Arrays.asList("uid");
         assertEquals(userList, checkList);
+
+        try {
+            embeddedLdapServer.init();
+        } catch (Exception e) {
+            fail(e.getLocalizedMessage());
+        }
+        embeddedLdapServer.getDirectoryService().getTestEntries();
 //        assertEquals(["uid"].sort(), embeddedLdapServer.getUserIndexMap().keySet().sort());
     }
 }

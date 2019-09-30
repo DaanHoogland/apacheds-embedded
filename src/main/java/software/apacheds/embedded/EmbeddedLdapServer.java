@@ -314,4 +314,13 @@ public class EmbeddedLdapServer {
     public void setDeleteInstanceDirectoryOnShutdown(boolean deleteInstanceDirectoryOnShutdown) {
         this._deleteInstanceDirectoryOnShutdown = deleteInstanceDirectoryOnShutdown;
     }
+
+    public static void main (String[] args) {
+        EmbeddedLdapServer embeddedLdapServer = new EmbeddedLdapServer();
+        try {
+            embeddedLdapServer.init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

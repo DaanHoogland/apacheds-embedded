@@ -11,7 +11,7 @@
     <properties>
         <cs.jdk.version>1.8</cs.jdk.version>
         <cs.target.dir>target</cs.target.dir>
-        <ads.version>2.0.0.AM26-SNAPSHOT</ads.version>
+        <ads.version>2.0.0.AM25</ads.version>
         <cs.compiler-plugin.version>3.7.0</cs.compiler-plugin.version>
         <commons-io.version>2.6</commons-io.version>
     </properties>
@@ -21,7 +21,7 @@
             <groupId>org.apache.directory.server</groupId>
             <artifactId>apacheds-server-integ</artifactId>
             <version>${ads.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
             <exclusions>
                 <!--
                  shared-ldap-schema module needs to be excluded to avoid multiple schema resources on the classpath
@@ -56,14 +56,6 @@
             <version>${ads.version}</version>
             <scope>compile</scope>
         </dependency>
-<!--
-        <dependency>
-            <groupId>org.apache.directory.server</groupId>
-            <artifactId>apacheds-jdbm-store</artifactId>
-            <version>${ads.version}</version>
-            <scope>compile</scope>
-        </dependency>
--->
         <dependency>
             <groupId>org.apache.directory.server</groupId>
             <artifactId>apacheds-jdbm-partition</artifactId>
